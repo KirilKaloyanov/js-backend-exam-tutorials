@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-//TODO: change DB connection string
-const CONNECTION_STRING = "mongodb://localhost:27017/scaffold";
+const CONNECTION_STRING = "mongodb://localhost:27017/tutorials";
 
 module.exports = async (app) => {
   try {

@@ -11,9 +11,13 @@ authController.get("/register", (req, res) => {
 });
 
 authController.post("/register", async (req, res) => {
+  const CREDENTIALS_PATTERN = /^[a-zA-Z0-9]+$/i;
   try {
-    if (req.body.username == "" || req.body.password == "") {
-      throw new Error("All fields are required.");
+    if (req.body.username.length < 5 || !CREDENTIALS_PATTERN.test(req.body.username)) {
+      throw new Error("Username must be at least 5 characters long and should include only english letters and digits.");
+    }
+    if (req.body.password.length < 5 || !CREDENTIALS_PATTERN.test(req.body.password)) {
+      throw new Error("Password must be at least 5 characters long and should include only english letters and digits.");
     }
     if (req.body.password != req.body.repass) {
       throw new Error("Passwords don't match.");

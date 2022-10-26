@@ -39,7 +39,6 @@ async function register(username, password) {
   return createSession(user);
 }
 
-function logout() {}
 
 function createSession({ _id, username }) {
   const payload = {
@@ -57,7 +56,6 @@ function verifyToken(token) {
 module.exports = {
   login,
   register,
-  logout,
   createSession,
   verifyToken,
 };
